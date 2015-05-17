@@ -4,9 +4,11 @@ module Comotion
       include Mongoid::Document
       include Mongoid::Timestamps
 
-      store_in collection: 'comotion_user'
+      store_in collection: 'co_users'
 
-      has_one :profile, class_name: 'Comotion::User::Profile'
+      has_one  :profile,    class_name: 'Comotion::User::Profile'
+      has_many :interests,  class_name: 'Comotion::Interest::Model', as: :interestable
+      has_many :team_roles, class_name: 'Comotion::Team::Role'
 
       field :email_address,   type: String
       field :fullname,        type: String

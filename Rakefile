@@ -24,4 +24,10 @@ task :routes => :environment do
   end
 end
 
+namespace :db do
+  task :clean => :environment do
+    DatabaseCleaner.clean
+  end
+end
+
 task default: [:routes]

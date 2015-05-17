@@ -20,6 +20,7 @@ group :development do
   gem 'guard-rack'
   gem 'rubocop'
   gem 'pry'
+  gem 'database_cleaner'
 end
 
 group :test do
