@@ -1,0 +1,12 @@
+development:
+  sessions:
+    default:
+      hosts:
+        - 192.168.99.100:32768
+      database: comotion_dev
+test:
+  sessions:
+    default:
+      hosts:
+        - 192.168.99.100:32768
+      database: comotion_test
