@@ -10,9 +10,12 @@ gem 'rack-cors'
 gem 'grape'
 gem 'grape-entity'
 gem 'grape-swagger'
+gem 'json', '>= 1.7.7'
 
 # Database
 gem 'mongoid'
+gem 'pg'
+gem 'grape-activerecord'
 
 group :development do
   gem 'guard'
