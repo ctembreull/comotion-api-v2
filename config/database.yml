@@ -1,0 +1,12 @@
+development: &development
+  adapter:  postgresql
+  host:     192.168.99.100
+  port:     32768
+  database: comotion
+  encoding: unicode
+  pool:     5
+  username: comotion
+  password: comotion
+test:
+  <<: *development
+  database: comotion_test
