@@ -4,7 +4,7 @@ module Comotion
 
     mount ::Comotion::Ping::API
     mount ::Comotion::Users::API
-    mount ::Comotion::Users::Profile
+    # mount ::Comotion::Users::Profile
 
   end # class API
 end # module Comotion

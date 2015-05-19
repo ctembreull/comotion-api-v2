@@ -1,6 +1,6 @@
 module Comotion
   module Users
-    class Profile < Grape::API
+    class API < Grape::API
 
       namespace :users do
         route_param :user_id do
@@ -10,6 +10,8 @@ module Comotion
           namespace :profile do
 
             get do
+              u = Comotion::User::Model.find_by(guid: params[:user_id])
+              u.profile
             end
 
             put do
