@@ -2,7 +2,7 @@ development:
   sessions:
     default:
       hosts:
-        - 192.168.99.100:32768
+        - 192.168.99.100:32769
       database: comotion_dev
 test:
   sessions:
