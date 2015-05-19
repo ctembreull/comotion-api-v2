@@ -11,6 +11,7 @@ Bundler.require :default, ENV['RACK_ENV']
 application_paths = [
   '../../config/initializers/*.rb',
   '../../app/models/**/*.rb',
+  '../../app/entities/**/*.rb',
   '../../app/api/**/*.rb',
   '../../app/helpers/**/*.rb'
 ]

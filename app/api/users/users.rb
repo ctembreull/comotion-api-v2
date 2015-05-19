@@ -29,6 +29,8 @@ module Comotion
           u.profile = p
           u.save
           p.save
+
+          Comotion::Entity::User.represent(u, {type: :simple})
         end
 
         desc 'Get a list of users'
@@ -47,7 +49,8 @@ module Comotion
 
           desc 'Get a User object'
           get do
-            Comotion::User::Model.find_by(guid: params[:user_id])
+            u = Comotion::User::Model.find_by(guid: params[:user_id])
+            Comotion::Entity::User.represent(u, {type: :full})
           end
 
           desc 'Update a user object'
