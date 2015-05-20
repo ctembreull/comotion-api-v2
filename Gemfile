@@ -5,6 +5,7 @@ ruby '2.2.2'
 # Server stack
 gem 'rack'
 gem 'rack-cors'
+gem 'bcrypt-ruby'
 
 # RESTful API DSL
 gem 'grape'
@@ -13,6 +14,7 @@ gem 'grape-swagger'
 
 # Database
 gem 'mongoid'
+gem 'mongoid-pagination'
 
 group :development do
   gem 'guard'
