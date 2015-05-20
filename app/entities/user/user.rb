@@ -3,6 +3,7 @@ module Comotion
     class User < Grape::Entity
       format_with(:iso_timestamp) { |dt| dt.iso8601 }
 
+      expose :guid
       expose :email_address
       expose :fullname
       with_options(format_with: :iso_timestamp) do

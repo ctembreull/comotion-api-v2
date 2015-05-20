@@ -36,7 +36,7 @@ module Comotion
         expose :facebook
         expose :instagram
         expose :researchgate
-        expose :Twitter
+        expose :twitter
         expose :xing
         expose :youtube
         expose :vimeo

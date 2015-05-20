@@ -2,35 +2,21 @@ module Comotion
   module Users
     class API < Grape::API
 
-      helpers do
-        params :create_user do
-          # user object items
-          requires :email_address, type: String, allow_blank: false
-          requires :password,      type: String, allow_blank: false
-          # profile object items
-          requires :first_name,    type: String, allow_blank: false
-          requires :last_name,     type: String, allow_blank: false
-          requires :title,         type: String, allow_blank: false
-          requires :organization,  type: String, allow_blank: false
-        end
-      end
-
-
-
       namespace :users do
 
         desc 'Create a user'
         params do
-          use :create_user
+          use :user_setup
         end
         post do
-          u = Comotion::User::Model.build(params)
-          p = Comotion::User::Profile.build(params)
-          u.profile = p
-          u.save
-          p.save
+          user    = Comotion::User::Model.build(params)
+          profile = Comotion::User::Profile.build(params)
+          user.profile = profile
 
-          Comotion::Entity::User.represent(u, {type: :simple})
+          user.save
+          profile.save
+
+          Comotion::Entity::User.represent(user, {type: :full})
         end
 
         desc 'Get a list of users'
@@ -39,7 +25,8 @@ module Comotion
           optional :limit, type: Integer, default: 25
         end
         get do
-          Comotion::User::Model.paginate(page: params[:page], limit: params[:limit])
+          c = Comotion::User::Model.paginate(page: params[:page], limit: params[:limit])
+          Comotion::Entity::User.represent(c, {type: :limited})
         end
 
         route_param :user_id do

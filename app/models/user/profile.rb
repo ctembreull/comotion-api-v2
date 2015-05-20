@@ -60,7 +60,7 @@ module Comotion
       field :facebook,      type: String
       field :instagram,     type: String
       field :researchgate,  type: String
-      field :Twitter,       type: String
+      field :twitter,       type: String
       field :xing,          type: String
       field :youtube,       type: String
       field :vimeo,         type: String
@@ -69,17 +69,21 @@ module Comotion
       field :google_plus,   type: String
 
       # VALIDATIONS
-      validates :role,    inclusion: { in: USER_ROLES }
-      validates :seeking, inclusion: { in: USER_ROLES }
-      validates :gender,  inclusion: { in: USER_GENDERS }
+      validates :role,    inclusion: { in: Comotion::Constants.UserRoles.keys.map {|k| k.to_s} }
+      validates :seeking, inclusion: { in: Comotion::Constants.UserRoles.keys.map {|k| k.to_s} }
+      validates :gender,  inclusion: { in: Comotion::Constants.UserGenders.keys.map {|k| k.to_s} + [nil, ''] }
+
+
 
 
       def self.build(params)
         self.new(
-          first_name: params[:first_name],
-          last_name:  params[:last_name],
-          title:      params[:title],
-          position:   params[:position]
+          first_name:   params[:first_name],
+          last_name:    params[:last_name],
+          title:        params[:title],
+          organization: params[:organization],
+          role:         params[:role],
+          seeking:      params[:seeking]
         )
       end
 
