@@ -13,8 +13,8 @@ gem 'grape-entity'
 gem 'grape-swagger'
 
 # Database
-gem 'mongoid'
-gem 'mongoid-pagination'
+gem 'grape-activerecord'
+gem 'pg'
 
 group :development do
   gem 'guard'

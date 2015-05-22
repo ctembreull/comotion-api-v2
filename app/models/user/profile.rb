@@ -1,33 +1,7 @@
 module Comotion
   module User
     class Profile
-      include Mongoid::Document
-      include Mongoid::Timestamps
-
-      USER_ROLES = {
-        researcher:           'Research Scientist',
-        primary_investigator: 'Primary Investigator',
-        innovator:            'Professor',
-        partner:              'Partner',
-        catalyst:             'Catalyst',
-        staff:                'Staff Member',
-        guru:                 'Guru'
-      }
-
-      USER_GENDERS = {
-        male:   'Male',
-        female: 'Female',
-        custom: 'Custom'
-      }
-
-
-
-      # CONFIGURATION
-      store_in collection: 'co_user_profiles'
-
-      # RELATIONS
-      belongs_to :user, class_name: 'Comotion::User::Model'
-
+=begin
       # General Fields
       field :first_name,   type: String
       field :last_name,    type: String
@@ -86,7 +60,7 @@ module Comotion
           seeking:      params[:seeking]
         )
       end
-
+=end
     end
   end
 end

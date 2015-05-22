@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require 'grape/activerecord/rake'
 
 begin
   Bundler.setup(:default, :development)
@@ -28,6 +29,8 @@ namespace :db do
   task :clean => :environment do
     DatabaseCleaner.clean
   end
+
+  
 end
 
 task default: [:routes]

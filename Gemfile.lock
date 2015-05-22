@@ -4,12 +4,17 @@ GEM
     activemodel (4.2.1)
       activesupport (= 4.2.1)
       builder (~> 3.1)
+    activerecord (4.2.1)
+      activemodel (= 4.2.1)
+      activesupport (= 4.2.1)
+      arel (~> 6.0)
     activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    arel (6.0.0)
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
@@ -20,14 +25,12 @@ GEM
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    bson (2.3.0)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    connection_pool (2.2.0)
     database_cleaner (1.4.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -45,6 +48,10 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
+    grape-activerecord (0.0.8)
+      activerecord (~> 4.0)
+      grape (~> 0.1)
+      hashie-forbidden_attributes (~> 0.1.1)
     grape-entity (0.4.5)
       activesupport
       multi_json (>= 1.3.2)
@@ -70,6 +77,8 @@ GEM
       guard (~> 2.3)
       spoon
     hashie (3.4.1)
+    hashie-forbidden_attributes (0.1.1)
+      hashie (>= 3.0)
     hitimes (1.2.2)
     i18n (0.7.0)
     ice_nine (0.11.1)
@@ -81,28 +90,15 @@ GEM
     lumberjack (1.0.9)
     method_source (0.8.2)
     minitest (5.6.1)
-    mongoid (4.0.2)
-      activemodel (~> 4.0)
-      moped (~> 2.0.0)
-      origin (~> 2.1)
-      tzinfo (>= 0.3.37)
-    mongoid-pagination (0.2.0)
-      activesupport
-      mongoid
-    moped (2.0.4)
-      bson (~> 2.2)
-      connection_pool (~> 2.0)
-      optionable (~> 0.2.0)
     multi_json (1.11.0)
     multi_xml (0.5.5)
     nenv (0.2.0)
     notiffany (0.0.6)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    optionable (0.2.0)
-    origin (2.1.1)
     parser (2.2.2.2)
       ast (>= 1.1, < 3.0)
+    pg (0.18.2)
     powerpack (0.1.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -163,13 +159,13 @@ DEPENDENCIES
   bcrypt-ruby
   database_cleaner
   grape
+  grape-activerecord
   grape-entity
   grape-swagger
   guard
   guard-bundler
   guard-rack
-  mongoid
-  mongoid-pagination
+  pg
   pry
   rack
   rack-cors

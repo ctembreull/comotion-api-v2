@@ -1,10 +1,7 @@
 module Comotion
   module Ping
-    class Model
-      include Mongoid::Document
-
-      field :name, type: String
-
+    class Model < ActiveRecord::Base
+      self.table_name = 'pings'
     end
   end
 end
